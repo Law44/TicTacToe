@@ -304,6 +304,7 @@ public class Controller implements Initializable {
         }
     }
 
+
     private  void jugadaCpuHard(){ //metodo de la dificultad dificil. NO SE LE PUEDE GANAR
         firstPlayer.setDisable(true);
         String temp = firstPlayer.getText();
