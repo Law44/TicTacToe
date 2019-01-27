@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <SplitPane dividerPositions="0.6521739130434783" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+        <items>
+            <GridPane prefHeight="400.0" prefWidth="400.0">
+               <children>
+                  <Button id="bt1" fx:id="bt1" mnemonicParsing="false" onAction="#movimiento" prefHeight="131.0" prefWidth="132.0" />
+                  <Button id="bt2" fx:id="bt2" mnemonicParsing="false" onAction="#movimiento" prefHeight="131.0" prefWidth="132.0" GridPane.columnIndex="1" />
+                  <Button id="bt3" fx:id="bt3" mnemonicParsing="false" onAction="#movimiento" prefHeight="131.0" prefWidth="132.0" GridPane.columnIndex="2" />
+                  <Button id="bt4" fx:id="bt4" mnemonicParsing="false" onAction="#movimiento" prefHeight="131.0" prefWidth="132.0" GridPane.rowIndex="1" />
+                  <Button id="bt5" fx:id="bt5" mnemonicParsing="false" onAction="#movimiento" prefHeight="131.0" prefWidth="132.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button id="bt6" fx:id="bt6" mnemonicParsing="false" onAction="#movimiento" prefHeight="131.0" prefWidth="132.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button id="bt7" fx:id="bt7" mnemonicParsing="false" onAction="#movimiento" prefHeight="131.0" prefWidth="132.0" GridPane.rowIndex="2" />
+                  <Button id="bt8" fx:id="bt8" mnemonicParsing="false" onAction="#movimiento" prefHeight="131.0" prefWidth="132.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button id="bt9" fx:id="bt9" mnemonicParsing="false" onAction="#movimiento" prefHeight="131.0" prefWidth="132.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="cpuVScpu" layoutX="20.0" layoutY="94.0" mnemonicParsing="false" onAction="#gamemode" prefHeight="37.0" prefWidth="161.0" text="CPU VS CPU">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="OpcionPartida" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="humanVScpu" layoutX="20.0" layoutY="69.0" mnemonicParsing="false" onAction="#gamemode" prefHeight="37.0" prefWidth="161.0" text="HUMAN VS CPU" toggleGroup="$OpcionPartida" />
+                  <RadioButton fx:id="humanVShuman" layoutX="20.0" layoutY="42.0" mnemonicParsing="false" onAction="#gamemode" prefHeight="37.0" prefWidth="161.0" selected="true" text="HUMAN VS HUMAN" toggleGroup="$OpcionPartida" />
+                  <Button id="restart" fx:id="reinicio" layoutX="40.0" layoutY="336.0" mnemonicParsing="false" onAction="#restart" prefHeight="25.0" prefWidth="121.0" text="Restart" />
+                  <Button id="restart" fx:id="play" layoutX="42.0" layoutY="293.0" mnemonicParsing="false" onAction="#gameplay" prefHeight="25.0" prefWidth="121.0" text="Play" />
+                  <TextArea fx:id="firstPlayer" layoutX="76.0" layoutY="152.0" prefHeight="25.0" prefWidth="114.0" />
+                  <TextArea fx:id="secondPlayer" layoutX="75.0" layoutY="193.0" prefHeight="25.0" prefWidth="114.0" />
+                  <Text layoutX="12.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player X" wrappingWidth="53.7421875" />
+                  <Text layoutX="11.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player O" wrappingWidth="53.7421875" />
+                  <Text fx:id="turn" layoutX="30.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Turn of:" wrappingWidth="53.7421875" />
+                  <Text fx:id="actualPlayer" layoutX="93.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="53.7421875" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <MenuBar prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Ajustes">
+               <items>
+                  <Menu mnemonicParsing="false" text="Dificultad">
+                     <items>
+                        <RadioMenuItem fx:id="easy" mnemonicParsing="false" onAction="#setDifficulty" selected="true" text="Easy">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="difficulty" />
+                           </toggleGroup>
+                        </RadioMenuItem>
+                        <RadioMenuItem fx:id="normal" mnemonicParsing="false" onAction="#setDifficulty" text="Normal" toggleGroup="$difficulty" />
+                        <RadioMenuItem fx:id="hard" mnemonicParsing="false" onAction="#setDifficulty" text="Hard" toggleGroup="$difficulty" />
+                     </items>
+                  </Menu>
+              <MenuItem fx:id="close" mnemonicParsing="false" onAction="#closeGame" text="Cerrar" />
+               </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Resultados">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#partidas" text="Partidas" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</Pane>
